@@ -3,15 +3,8 @@ class Signup{
     constructor(){
         this.emailInput = document.getElementById('username');
         this.passwordInput = document.getElementById('password');
+        this.nameInput = document.getElementById('name');
         this.buttonSubmit = document.getElementById('submitBtn');
-    }
-
-    handleSpecie = (e) => {
-        const specie = e.target.value;
-
-        // validamos con validator
-        validation.validateSpecies(e, specie);
-        this.checkSubmitButton();
     }
 
     handleEmail = (e) => {
@@ -19,6 +12,15 @@ class Signup{
 
         // validamos con validator
         validation.validateEmail(e, email);
+
+        this.checkSubmitButton();
+    }
+
+    handleName = (e) => {
+        const name = e.target.value;
+
+        // validamos con validator
+        validation.validateName(e, name);
 
         this.checkSubmitButton();
     }
@@ -56,6 +58,8 @@ class Signup{
         // Asignamos eventos a los botones
         this.emailInput.addEventListener('input', this.handleEmail)
         this.passwordInput.addEventListener('input', this.handlePassword)
+        this.nameInput.addEventListener('input', this.handleName)
+        this.nameInput.addEventListener('blur', this.handleName)
     }
 
     checkSubmitButton = () => {

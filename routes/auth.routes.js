@@ -15,11 +15,11 @@ router.get('/signup', (req, res, next) => {
 })
 
 router.post('/signup', (req, res, next) => {
-    const { username, password } = req.body;
+    const { name, username, password } = req.body;
 
     console.log(req.body)
 
-    if (username === "" || password === "") {
+    if (username === "" || password === "" || name === "") {
         res.render('auth/signup', {
             errorMessage: "Fields cannot be empty"
         });
@@ -40,9 +40,9 @@ router.post('/signup', (req, res, next) => {
             const salt = bcrypt.genSaltSync(bcryptSalt);
             const hashPass = bcrypt.hashSync(password, salt);
 
-            User.create({username, password: hashPass})
+            User.create({username, password: hashPass, name})
                 .then(() => {
-                    res.redirect('/')
+                    res.redirect('/login')
                 })
                 .catch((error) => {
                     console.log(error);
@@ -78,11 +78,9 @@ router.post('/login', (req, res, next)=> {
 
             if (bcrypt.compareSync(password, user.password)){
                 req.session.currentUser = user;
-                
-                res.locals.currentUser = req.session.currentUser;
-                const userName = req.session.currentUser.username;
+                const name = req.session.currentUser.name;
 
-                res.render('index', {userName});
+                res.render('index', {name});
                 
             } else {
                 res.render('auth/login', {

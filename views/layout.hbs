@@ -18,19 +18,25 @@
         <div class="wrapper-btn-burger btnMenu" data-toggle="menu">
           <button type="button" class="btn-burger"><span></span></button>
         </div>
-        <nav id="menu">
-          <buton type="button" class="btn-close btnMenu" data-toggle="menu">X</buton>
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/login">Login</a></li>
-            <li><a href="/signup">SignUp</a></li>
-            <li><a href="/main">The cat</a></li>
-            <li><a href="/private">Private</a></li>
-            {{#if isUserLoggedIn}}
-            <li><p> Hello, {{ currentUserInfo.username }}. </p></li>
-            {{/if}}
-          </ul>
-        </nav>
+        <div class="nav-options">
+          <nav id="menu">
+            <buton type="button" class="btn-close btnMenu" data-toggle="menu">X</buton>
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/login">Login</a></li>
+              <li><a href="/signup">SignUp</a></li>
+              <li><a href="/main">The cat</a></li>
+              <li><a href="/private">Private</a></li>
+            </ul>
+          </nav>
+          {{#if isUserLoggedIn}}
+          <div class="login">
+              <p> Hello, {{ currentUserInfo.name }}. </p>
+              <a href="/logout">Logout</a>
+          </div>
+          {{/if}}
+        </div>
+        
       </div>
   </header>
   <main>

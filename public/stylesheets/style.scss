@@ -123,6 +123,24 @@ header{
     align-items: center;  
   }
 
+  .nav-options,
+  .login{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .login{
+    color: #fff;
+    font-size: 1.6rem;
+
+    p{
+      margin: 0 10px 0 20px;
+      padding-left: 10px;
+      border-left: 1px solid rgba(white, 0.2);
+    }
+  }
+
   .logo{
     a{
       text-decoration: none;

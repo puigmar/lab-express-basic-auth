@@ -1,8 +1,8 @@
 <div class="container homeLab-layout">
     <section class="home">
         <h1>Lab Express Basic Auth</h1>
-        {{#if userName}}
-            <p>Hello, you are in session!</p>
+        {{#if name}}
+            <p>Hello {{name}}, you are in session!</p>
             <a href="/logout">Close session</a>
         {{/if}}
     </section>

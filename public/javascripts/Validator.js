@@ -5,10 +5,12 @@ class Validator {
         this.invalidEmailError = 'Write a valid email';
         this.passwordError = 'Your password must have at least 6 letters';
         this.invalidAccess = 'Your email or your password are incorrect';
+        this.nameError = 'The name filed cannot be empty';
 
         this.errorForms = {
             errorEmailMsg: this.invalidEmailError,
             errorPassMsg: this.passwordError,
+            nameError: this.nameError,
         }
     }
 
@@ -25,7 +27,19 @@ class Validator {
         }
 
         this.checkValidationMsg(e, this.errorForms.errorEmailMsg || null)
+    }
 
+    validateName = (e) => {
+        let parent = e.target.parentNode;
+        let formEl = e.target;
+
+        if(formEl.value === ""){
+            this.errorForms.nameError = this.nameError;
+        } else {
+            delete this.errorForms.nameError;
+        }
+
+        this.checkValidationMsg(e, this.errorForms.nameError || null)
     }
 
     emailIsValid = (email) => {
