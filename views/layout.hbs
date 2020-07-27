@@ -26,6 +26,9 @@
             <li><a href="/signup">SignUp</a></li>
             <li><a href="/main">The cat</a></li>
             <li><a href="/private">Private</a></li>
+            {{#if isUserLoggedIn}}
+            <li><p> Hello, {{ currentUserInfo.username }}. </p></li>
+            {{/if}}
           </ul>
         </nav>
       </div>

@@ -32,6 +32,7 @@ app.use(require('node-sass-middleware')({
   sourceMap: true
 }));
 
+
 // Express View engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -49,6 +50,16 @@ app.use(session({
     resave: true,
     saveUninitialized: true
   }));
+
+app.use((req, res, next) => {
+  if (req.session.currentUser) {
+    res.locals.currentUserInfo = req.session.currentUser; 
+    res.locals.isUserLoggedIn = true; 
+  } else {
+    res.locals.isUserLoggedIn = false; 
+  }
+  next();
+});
 
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';

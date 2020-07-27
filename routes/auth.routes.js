@@ -7,6 +7,7 @@ const User = require('../models/User.model');
 
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcryptjs");
+const app = require("../app");
 const bcryptSalt = 10;
 
 router.get('/signup', (req, res, next) => {
@@ -77,8 +78,12 @@ router.post('/login', (req, res, next)=> {
 
             if (bcrypt.compareSync(password, user.password)){
                 req.session.currentUser = user;
+                
+                res.locals.currentUser = req.session.currentUser;
                 const userName = req.session.currentUser.username;
+
                 res.render('index', {userName});
+                
             } else {
                 res.render('auth/login', {
                     errorMessage: "The password is incorrect"
