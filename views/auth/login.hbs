@@ -1,0 +1,21 @@
+<div class="container card-container">
+    <h1>Login</h1>
+    <section class="card">
+        <form action="/login" method="POST">
+            <div class="form-group">
+                <label for="user">Username:</label>
+                <input type="text" name="username" id="username" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" class="form-control">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-lg" id="submitBtn" type="submit">Login</button>
+            </div>
+        </form>
+        <div id="messageResponse" class="message d-none">{{errorMessage}}</div>
+
+    </section>
+</div>
+<script src="javascripts/Login.js" type="text/javascript"></script>

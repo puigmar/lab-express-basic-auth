@@ -6,13 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{title}}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Coustard:wght@400;900&display=swap" rel="stylesheet">
   </head>
 
   <body>
-
+    <header>
+      <div class="container">
+        <div class="logo"><a href="/">Express Auth</a></div>
+        <div class="wrapper-btn-burger btnMenu" data-toggle="menu">
+          <button type="button" class="btn-burger"><span></span></button>
+        </div>
+        <nav id="menu">
+          <buton type="button" class="btn-close btnMenu" data-toggle="menu">X</buton>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup">SignUp</a></li>
+            <li><a href="/main">The cat</a></li>
+            <li><a href="/private">Private</a></li>
+          </ul>
+        </nav>
+      </div>
+  </header>
+  <main>
     {{{body}}}
-
+  </main>
     <script src="/javascripts/script.js"></script>
   </body>
 

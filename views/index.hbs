@@ -1,2 +1,11 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<div class="container homeLab-layout">
+    <section class="home">
+        <h1>Lab Express Basic Auth</h1>
+        {{#if userName}}
+            <p>Hello, you are in session!</p>
+            <a href="/logout">Close session</a>
+        {{/if}}
+    </section>
+</div>
+
+
